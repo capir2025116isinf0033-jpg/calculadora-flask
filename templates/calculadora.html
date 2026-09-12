@@ -4,55 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculadora</title>
-
-    <link rel="icon" type="image/x-icon"
-          href="{{ url_for('static', filename='favicon.ico') }}">
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='calculadora.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='calculadora.css') }}">
 </head>
 
 <body>
 
     <div class="calculadora">
-
         <h1>Calculadora</h1>
-
+        
         <input type="number" id="numero1" placeholder="Primeiro número">
-
         <input type="number" id="numero2" placeholder="Segundo número">
-
         <br>
 
         <button onclick="calcular('somar')">+</button>
         <button onclick="calcular('subtrair')">−</button>
         <button onclick="calcular('multiplicar')">×</button>
         <button onclick="calcular('dividir')">÷</button>
-
-        <br><br>
-
+        <br>
+        <br>
         <a href="/">Voltar</a>
-
     </div>
-
-    <script>
-        function calcular(operacao) {
-
-            let numero1 = document.getElementById("numero1").value;
-            let numero2 = document.getElementById("numero2").value;
-
-            if (numero1 === "" || numero2 === "") {
-                alert("Digite os dois números!");
-                return;
-            }
-
-            window.location.href =
-                "/resultado?numero1=" + numero1 +
-                "&numero2=" + numero2 +
-                "&operacao=" + operacao;
-        }
-    </script>
-
 </body>
-
 </html>
