@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Calculadora</title>
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='calculadora.css') }}">
+
+    <link rel="icon" type="image/x-icon"
+          href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='calculadora.css') }}">
 </head>
 
 <body>
@@ -19,59 +24,35 @@
 
         <br>
 
-        <button onclick="somar()">+</button>
-        <button onclick="subtrair()">−</button>
-        <button onclick="multiplicar()">×</button>
-        <button onclick="dividir()">÷</button>
+        <button onclick="calcular('somar')">+</button>
+        <button onclick="calcular('subtrair')">−</button>
+        <button onclick="calcular('multiplicar')">×</button>
+        <button onclick="calcular('dividir')">÷</button>
 
-        <div id="resultado">
-            Resultado: 0
-        </div>
+        <br><br>
 
-        <br>
-
-        <a href="/" style="color: white;">Voltar</a>
+        <a href="/">Voltar</a>
 
     </div>
 
     <script>
-        function pegarNumeros() {
-            let numero1 = Number(document.getElementById("numero1").value);
-            let numero2 = Number(document.getElementById("numero2").value);
+        function calcular(operacao) {
 
-            return [numero1, numero2];
-        }
+            let numero1 = document.getElementById("numero1").value;
+            let numero2 = document.getElementById("numero2").value;
 
-        function somar() {
-            let [numero1, numero2] = pegarNumeros();
-            document.getElementById("resultado").innerHTML =
-                "Resultado: " + (numero1 + numero2);
-        }
-
-        function subtrair() {
-            let [numero1, numero2] = pegarNumeros();
-            document.getElementById("resultado").innerHTML =
-                "Resultado: " + (numero1 - numero2);
-        }
-
-        function multiplicar() {
-            let [numero1, numero2] = pegarNumeros();
-            document.getElementById("resultado").innerHTML =
-                "Resultado: " + (numero1 * numero2);
-        }
-
-        function dividir() {
-            let [numero1, numero2] = pegarNumeros();
-
-            if (numero2 === 0) {
-                document.getElementById("resultado").innerHTML =
-                    "Não é possível dividir por zero!";
-            } else {
-                document.getElementById("resultado").innerHTML =
-                    "Resultado: " + (numero1 / numero2);
+            if (numero1 === "" || numero2 === "") {
+                alert("Digite os dois números!");
+                return;
             }
+
+            window.location.href =
+                "/resultado?numero1=" + numero1 +
+                "&numero2=" + numero2 +
+                "&operacao=" + operacao;
         }
     </script>
 
 </body>
+
 </html>

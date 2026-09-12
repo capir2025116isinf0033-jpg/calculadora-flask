@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+
+    <link rel="icon" type="image/x-icon"
+          href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='resultado.css') }}">
+</head>
+
+<body>
+
+    <div class="resultado">
+
+        <h1>Resultado</h1>
+
+        <p>{{ resultado }}</p>
+
+         <a href="/" style="color: white;">Voltar</a>
+
+    </div>
+
+</body>
+
+</html>
